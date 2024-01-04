@@ -19,7 +19,7 @@ public class User {
 
     private Country OriginalCountry;
 
-    private Country
+
 
     private String maskedIp;
 
@@ -35,6 +35,15 @@ public class User {
     private List<ServiceProvider>ServiceProviders= new ArrayList<>();
 
     public User() {
+    }
+
+    public Country getOriginalCountry() {
+
+        return OriginalCountry;
+    }
+
+    public void setOriginalCountry(Country originalCountry) {
+        OriginalCountry = originalCountry;
     }
 
     public Integer getId() {
