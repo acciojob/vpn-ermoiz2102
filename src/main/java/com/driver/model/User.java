@@ -17,6 +17,10 @@ public class User {
 
     private String originalIp;
 
+    private Country OriginalCountry;
+
+    private Country
+
     private String maskedIp;
 
     private boolean connected;
@@ -28,7 +32,7 @@ public class User {
     private List<Connection>connectionList= new ArrayList<>();
 
     @ManyToMany
-    private List<ServiceProvider>serviceProviderList= new ArrayList<>();
+    private List<ServiceProvider>ServiceProviders= new ArrayList<>();
 
     public User() {
     }
@@ -97,11 +101,11 @@ public class User {
         this.connectionList = connectionList;
     }
 
-    public List<ServiceProvider> getServiceProviderList() {
-        return serviceProviderList;
+    public List<ServiceProvider> getServiceProviders() {
+        return ServiceProviders;
     }
 
-    public void setServiceProviderList(List<ServiceProvider> serviceProviderList) {
-        this.serviceProviderList = serviceProviderList;
+    public void setServiceProviders(List<ServiceProvider> ServiceProviders) {
+        this.ServiceProviders = ServiceProviders;
     }
 }

@@ -14,7 +14,7 @@ public class ServiceProvider {
     private String name;
 
     @ManyToMany
-    private List<User>userList=new ArrayList<>();
+    private List<User>Users=new ArrayList<>();
 
     @ManyToOne
     @JoinColumn
@@ -45,12 +45,12 @@ public class ServiceProvider {
         this.name = name;
     }
 
-    public List<User> getUserList() {
-        return userList;
+    public List<User> getUsers() {
+        return Users;
     }
 
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
+    public void setUsers(List<User> Users) {
+        this.Users = Users;
     }
 
     public Admin getAdmin() {
