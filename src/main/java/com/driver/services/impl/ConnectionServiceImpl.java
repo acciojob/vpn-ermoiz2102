@@ -31,7 +31,7 @@ public class ConnectionServiceImpl implements ConnectionService {
     @Override
     public User connect(int userId, String countryName) throws Exception{
       User user=userRepository2.findById(userId).get();
-      if(user.getConnected()==true)
+      if(user.getConnected())
           throw new alreadyConnected("Already connected");
       CountryName countryName1=null;
       try{
@@ -78,7 +78,7 @@ public class ConnectionServiceImpl implements ConnectionService {
     @Override
     public User disconnect(int userId) throws Exception {
         User user=userRepository2.findById(userId).get();
-        if(user.getConnected()==false)
+        if(!user.getConnected())
             throw new unableToConnect("Already disconnected");
         user.setConnected(false);
         user.setMaskedIp(null);
