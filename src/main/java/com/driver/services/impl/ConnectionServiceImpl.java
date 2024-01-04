@@ -43,16 +43,16 @@ public class ConnectionServiceImpl implements ConnectionService {
       Country country=countryRepository2.findBycountryName(countryName1);
       if(user.getCountry().equals(country))
           return user;
-      if(user.getServiceProviders().size()==0)
+      if(user.getServiceProviderList().size()==0)
           throw new unableToConnect("Unable to connect");
 
       ServiceProvider serviceProvider1=null;
-        if(user.getServiceProviders().size()==1&&!user.getServiceProviders().get(0).getCountryList().contains(country))
+        if(user.getServiceProviderList().size()==1&&!user.getServiceProviderList().get(0).getCountryList().contains(country))
             throw new unableToConnect("Unable to connect");
-        List<ServiceProvider>ServiceProviders=user.getServiceProviders();
+        List<ServiceProvider>ServiceProviderList=user.getServiceProviderList();
         int id=Integer.MAX_VALUE;
 
-        for(ServiceProvider serviceProvider:ServiceProviders){
+        for(ServiceProvider serviceProvider:ServiceProviderList){
             if(serviceProvider.getCountryList().contains(country)&&serviceProvider.getId()<id)
                 serviceProvider1=serviceProvider;
             id=serviceProvider.getId();
@@ -112,10 +112,10 @@ public class ConnectionServiceImpl implements ConnectionService {
    }
    else{
        ServiceProvider serviceProvider1=null;
-       List<ServiceProvider>ServiceProviders=user1.getServiceProviders();
+       List<ServiceProvider>ServiceProviderList=user1.getServiceProviderList();
        int id=Integer.MAX_VALUE;
 
-       for(ServiceProvider serviceProvider:ServiceProviders){
+       for(ServiceProvider serviceProvider:ServiceProviderList){
            if(serviceProvider.getCountryList().contains(country1)&&serviceProvider.getId()<id)
                serviceProvider1=serviceProvider;
            id=serviceProvider.getId();
