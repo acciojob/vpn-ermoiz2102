@@ -90,7 +90,7 @@ public class ConnectionServiceImpl implements ConnectionService {
    User user1=userRepository2.findById(senderId).get();
    User user2=userRepository2.findById(receiverId).get();
    Country country1=null;
-        if(user1.getConnected()==true){
+        if(user1.getConnected()){
             String ip=user1.getMaskedIp().substring(0,3);
             CountryName countryName2=CountryName.valueOf(ip);
             country1=countryRepository2.findBycountryName(countryName2);
@@ -101,7 +101,7 @@ public class ConnectionServiceImpl implements ConnectionService {
         }
    if(user1.getCountry().equals(country1))
        return user1;
-   if(user1.getConnected()==true){
+   if(user1.getConnected()){
        String ip=user1.getMaskedIp().substring(0,3);
        CountryName countryName1=CountryName.valueOf(ip);
        Country country=countryRepository2.findBycountryName(countryName1);
