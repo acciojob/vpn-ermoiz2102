@@ -32,7 +32,7 @@ public class User {
     private List<Connection>connectionList= new ArrayList<>();
 
     @ManyToMany
-    private List<ServiceProvider>ServiceProviders= new ArrayList<>();
+    private List<ServiceProvider>ServiceProviderList= new ArrayList<>();
 
     public User() {
     }
@@ -110,11 +110,11 @@ public class User {
         this.connectionList = connectionList;
     }
 
-    public List<ServiceProvider> getServiceProviders() {
-        return ServiceProviders;
+    public List<ServiceProvider> getServiceProviderList() {
+        return ServiceProviderList;
     }
 
-    public void setServiceProviders(List<ServiceProvider> ServiceProviders) {
-        this.ServiceProviders = ServiceProviders;
+    public void setServiceProviderList(List<ServiceProvider> ServiceProviderList) {
+        this.ServiceProviderList = ServiceProviderList;
     }
 }
